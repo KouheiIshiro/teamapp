@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'statics#top'
   get :dashboard, to: 'teams#dashboard'
+  get :change_owner, to: 'teams#change_owner'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   resource :user
-  
+
   resources :teams do
     resources :assigns, only: %w(create destroy)
     resources :agendas, shallow: true do
