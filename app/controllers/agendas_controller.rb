@@ -14,10 +14,11 @@ class AgendasController < ApplicationController
     @agenda = current_user.agendas.build(title: params[:title])
     @agenda.team = Team.friendly.find(params[:team_id])
     current_user.keep_team_id = @agenda.team.id
-    if current_user.save && @agenda.save
+    if current_user.save && @agenda.valid?
+      @agenda.save
       redirect_to dashboard_url, notice: 'アジェンダ作成に成功しました！'
     else
-      render :new
+      redirect_to dashboard_url, notice: 'アジェンダを登録できませんでした'
     end
   end
 
