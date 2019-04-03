@@ -1,9 +1,9 @@
 class AssignMailer < ApplicationMailer
   default from: 'from@example.com'
 
-  def assign_mail(email, password)
+  def assign_mail(email)
     @email = email
-    @password = password
+    @password = "password"
     mail to: @email, subject: '登録完了'
   end
 end
