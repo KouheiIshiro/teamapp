@@ -51,7 +51,7 @@ class TeamsController < ApplicationController
     team = Team.find_by(name: params[:name])
     team.owner = User.find(params[:user_id])
     team.save!
-    AssignMailer.assign_mail(team.owner.email).deliver
+    ChangeOwnerMailer.change_owner_mail(team.owner.email).deliver
     redirect_to team
   end
 
