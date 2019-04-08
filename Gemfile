@@ -52,6 +52,8 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
